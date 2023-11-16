@@ -36,47 +36,30 @@ class Winner implements Comparable {
           }
         }
       }
-      return winners;
+      return winners
+          .where((element) => (int.parse(element.year) > 1900 &&
+              int.parse(element.year) < 2018))
+          .toList();
     }
     throw const HttpException('Some error occurred');
   }
 
   static Future<List<Winner>> getWinnersMoreThanOnce() async {
-    final response =
-        await http.get(Uri.parse('http://api.nobelprize.org/v1/prize.json'));
-    final data = jsonDecode(response.body)['prizes'];
-    if (response.statusCode == 200) {
-      final winners = List<Winner>.empty(growable: true);
-      final moreThanOnce = List<Winner>.empty(growable: true);
-      for (var e in data) {
-        final laureates = (e['laureates']);
-        if (laureates != null) {
-          for (var laureate in laureates) {
-            winners.add(Winner(
-                laureate['id'] ?? '',
-                laureate['firstname'] ?? '',
-                laureate['surname'] ?? '',
-                e['category'] ?? '',
-                e['year'] ?? '',
-                laureate['motivation'] ?? '',
-                laureate['share'] ?? ''));
-          }
+    final winners = await getWinners();
+    final List<Winner> moreThanOnce = [];
+    for (var winner in winners) {
+      var count = 0;
+      for (var otherWinner in winners) {
+        if (winner.compareTo(otherWinner) == 0) {
+          count++;
         }
       }
-      for(var winner in winners){
-        var count=0;
-        for (var otherWinner in winners){
-          if(winner.compareTo(otherWinner)==0){
-            count++;
-          }
-        }
-        if(count>1){
-          moreThanOnce.add(winner);
-        }
+      if (count > 1) {
+        moreThanOnce.add(winner);
       }
-      return moreThanOnce;
     }
-    throw const HttpException('Some error occurred');
+    moreThanOnce.sort();
+    return moreThanOnce;
   }
 
   @override
