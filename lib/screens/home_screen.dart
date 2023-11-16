@@ -18,6 +18,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
+    Winner.getWinnersMoreThanOnce();
     return Scaffold(
       appBar: AppBar(
         title: const Text('Noble Winners'),

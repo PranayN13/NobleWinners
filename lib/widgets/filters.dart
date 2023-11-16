@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:noble_winners/screens/more_than_once.dart';
 
 class Filters extends StatefulWidget {
   final String filterCategory;
@@ -99,7 +100,11 @@ class _FiltersState extends State<Filters> {
             });
             widget.onCategoryChange(filterYear);
             widget.onYearChange(filterYear);
-          }, child: const Text('Clear Filters'))
+          }, child: const Text('Clear Filters')),
+          const SizedBox(height: 4,),
+          ElevatedButton(onPressed: (){
+            Navigator.push(context, MaterialPageRoute(builder: (context)=> const MoreThanOnce()));
+          }, child: const Text('Winners more than once')),
         ]);
   }
 }

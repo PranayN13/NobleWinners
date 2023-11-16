@@ -2,7 +2,7 @@ import 'dart:io';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
-class Winner {
+class Winner implements Comparable {
   final String id;
   final String firstName;
   final String lastName;
@@ -19,7 +19,7 @@ class Winner {
     final response = await http.get(Uri.parse(
         'http://api.nobelprize.org/v1/prize.json?category=$category&year=$year'));
     final data = jsonDecode(response.body)['prizes'];
-    if(response.statusCode == 200){
+    if (response.statusCode == 200) {
       final winners = List<Winner>.empty(growable: true);
       for (var e in data) {
         final laureates = (e['laureates']);
@@ -41,8 +41,52 @@ class Winner {
     throw const HttpException('Some error occurred');
   }
 
+  static Future<List<Winner>> getWinnersMoreThanOnce() async {
+    final response =
+        await http.get(Uri.parse('http://api.nobelprize.org/v1/prize.json'));
+    final data = jsonDecode(response.body)['prizes'];
+    if (response.statusCode == 200) {
+      final winners = List<Winner>.empty(growable: true);
+      final moreThanOnce = List<Winner>.empty(growable: true);
+      for (var e in data) {
+        final laureates = (e['laureates']);
+        if (laureates != null) {
+          for (var laureate in laureates) {
+            winners.add(Winner(
+                laureate['id'] ?? '',
+                laureate['firstname'] ?? '',
+                laureate['surname'] ?? '',
+                e['category'] ?? '',
+                e['year'] ?? '',
+                laureate['motivation'] ?? '',
+                laureate['share'] ?? ''));
+          }
+        }
+      }
+      for(var winner in winners){
+        var count=0;
+        for (var otherWinner in winners){
+          if(winner.compareTo(otherWinner)==0){
+            count++;
+          }
+        }
+        if(count>1){
+          moreThanOnce.add(winner);
+        }
+      }
+      return moreThanOnce;
+    }
+    throw const HttpException('Some error occurred');
+  }
+
   @override
   String toString() {
     return '$id $firstName $lastName $category $year';
+  }
+
+  @override
+  int compareTo(other) {
+    return '$firstName $lastName'
+        .compareTo('${other.firstName} ${other.lastName}');
   }
 }
