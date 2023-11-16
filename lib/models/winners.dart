@@ -37,8 +37,8 @@ class Winner implements Comparable {
         }
       }
       return winners
-          .where((element) => (int.parse(element.year) > 1900 &&
-              int.parse(element.year) < 2018))
+          .where((element) => (int.parse(element.year) >= 1900 &&
+              int.parse(element.year) <= 2018))
           .toList();
     }
     throw const HttpException('Some error occurred');
