@@ -17,7 +17,7 @@ class Winner implements Comparable {
   static Future<List<Winner>> getWinners(
       {String category = '', String year = ''}) async {
     final response = await http.get(Uri.parse(
-        'http://api.nobelprize.org/v1/prize.json?category=$category&year=$year'));
+        'https://api.nobelprize.org/v1/prize.json?category=$category&year=$year'));
     final data = jsonDecode(response.body)['prizes'];
     if (response.statusCode == 200) {
       final winners = List<Winner>.empty(growable: true);

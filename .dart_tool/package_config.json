@@ -44,6 +44,24 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "firebase_core",
+      "rootUri": "file:///Users/prateekthakur/.pub-cache/hosted/pub.dev/firebase_core-2.22.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.18"
+    },
+    {
+      "name": "firebase_core_platform_interface",
+      "rootUri": "file:///Users/prateekthakur/.pub-cache/hosted/pub.dev/firebase_core_platform_interface-5.0.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.18"
+    },
+    {
+      "name": "firebase_core_web",
+      "rootUri": "file:///Users/prateekthakur/.pub-cache/hosted/pub.dev/firebase_core_web-2.8.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.18"
+    },
+    {
       "name": "flutter",
       "rootUri": "file:///Users/prateekthakur/flutter/packages/flutter",
       "packageUri": "lib/",
@@ -62,6 +80,12 @@
       "languageVersion": "3.0"
     },
     {
+      "name": "flutter_web_plugins",
+      "rootUri": "file:///Users/prateekthakur/flutter/packages/flutter_web_plugins",
+      "packageUri": "lib/",
+      "languageVersion": "3.0"
+    },
+    {
       "name": "http",
       "rootUri": "file:///Users/prateekthakur/.pub-cache/hosted/pub.dev/http-1.1.0",
       "packageUri": "lib/",
@@ -72,6 +96,12 @@
       "rootUri": "file:///Users/prateekthakur/.pub-cache/hosted/pub.dev/http_parser-4.0.2",
       "packageUri": "lib/",
       "languageVersion": "2.12"
+    },
+    {
+      "name": "js",
+      "rootUri": "file:///Users/prateekthakur/.pub-cache/hosted/pub.dev/js-0.6.7",
+      "packageUri": "lib/",
+      "languageVersion": "2.19"
     },
     {
       "name": "lints",
@@ -102,6 +132,12 @@
       "rootUri": "file:///Users/prateekthakur/.pub-cache/hosted/pub.dev/path-1.8.3",
       "packageUri": "lib/",
       "languageVersion": "2.12"
+    },
+    {
+      "name": "plugin_platform_interface",
+      "rootUri": "file:///Users/prateekthakur/.pub-cache/hosted/pub.dev/plugin_platform_interface-2.1.6",
+      "packageUri": "lib/",
+      "languageVersion": "2.19"
     },
     {
       "name": "sky_engine",
@@ -170,7 +206,7 @@
       "languageVersion": "3.1"
     }
   ],
-  "generated": "2023-11-16T13:28:53.211Z",
+  "generated": "2023-11-17T05:09:03.324781Z",
   "generator": "pub",
   "generatorVersion": "3.1.5"
 }
