@@ -1,16 +1,14 @@
-# noble_winners
+# Noble Winners
 
-A new Flutter project.
+This web application empowers you to access information about Noble Prize winners from the period of 1900 to 2018. It further allows you to refine your search based on distinct categories and specific years.
 
-## Getting Started
+> 🔗 [Visit site](https://noble-prize-winners.web.app)
 
-This project is a starting point for a Flutter application.
+## Technologies
+>[![Tech](https://skills.thijs.gg/icons?i=flutter,firebase&theme=light)]()
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Pub Dependencies
+<ul>
+  <ul>http</ul>
+  <ul>firebase_core</ul>
+</ul>
